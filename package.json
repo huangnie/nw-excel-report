@@ -1,0 +1,22 @@
+{
+  	"name": "nw-excel",
+  	"main": "index.html",
+	"version": "1.0",
+    "window": {
+        "title": "node-webkit demo",
+        "icon": "./assert/icon/default.png",
+        "toolbar": false,
+        "frame": true,
+        "resizable": false,
+        "width": 1200,
+        "height": 600,
+        "position": "mouse",
+        "min_width": 400,
+        "min_height": 200,
+        "max_width": 1200,
+        "max_height": 600
+    },
+    "webkit": {
+       "plugin": true
+    }
+}

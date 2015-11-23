@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>报文系统</title>
+    <!-- Bootstrap -->
+    <link href="./lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link  href="./style.css" rel="stylesheet">　 
+  </head>
+  <body>
+    <div class="container-fluid" id="report">
+    	<h2 style="width:100%;text-align:center;">报文系统</h2>
+	  	<div class="row">
+		  	<table class="table table-bordered">
+			  	<tr>
+			  		<td class="left_justifying" colspan="3">
+			  			单位：<input type="text" v-model="to_user" class="input_danwei left_justifying">
+			  		</td>
+			  		<td class="left_justifying" colspan="3">
+			  			发文时间：<input type="date" v-model="from_date" value="{{from_date}}" class="input_date left_justifying">　
+			  			信封号：<input type="text" v-model="mailer_no" class="input_tip left_justifying">
+			  			通知单号：<input type="text" v-model="infrom_no" class="input_tip left_justifying">
+			  		</td>
+			  	</tr>
+			  	<tr>
+			  		<td width="40%">文　件</td><td width="5%">密　级</td><td width="5%">份　数</td>
+			  		<td width="40%">内　刊</td><td width="5%">密　级</td><td width="5%">份　数</td>
+			  	</tr>
+			  	<tr v-repeat="report">
+			  		<!-- 文件 -->
+			  		<td><input type="text" class="input left_justifying" v-model="file.name"></td>
+			  		<td> 
+			  			<select name="level" class="input" v-model="file.level">
+			  				<option v-repeat="levels" value="{{$value}}"　index="{{$index}}">
+						    	{{$value}} 
+						  	</option>
+			  			</select>
+			  		</td>
+			  		<td><input type="number" class="input" v-model="file.num"></td>
+
+			  		<!-- 内刊 -->
+			  		<td><input type="text" class="input left_justifying" v-model="margize.name"></td>
+			  		<td> 
+			  			<select name="level" class="input" v-model="margize.level">
+			  				<option v-repeat="levels" value="{{$value}}"　index="{{$index}}">
+						    	{{$value}} 
+						  	</option>
+			  			</select>
+			  		</td>
+			  		<td><input type="number" class="input" v-model="margize.num"></td>
+			  	</tr>
+			  	<tr id="add_or_del">
+			  		<td colspan="6" style="height:45px;"> 
+						<div id="group">
+							<input type="button"　 value="删除上面的末行" v-on="click: del" />
+				  			<input type="button"　 value="在上面新增一行" v-on="click: add" />
+						</div>
+					 
+			  		</td>
+			  	</tr>
+			  	<tr>
+				  	<td colspan="6"> 
+			  			<input type="text" class="input" v-model="tip"
+			  				value="请收文单位顺号保存通知单，如缺号或文件、内刊与此单不符，及时与我局联系。">
+			  		</td>
+			  	</tr>
+			  	<tr>
+			  		<td class="left_justifying" colspan="3">
+			  			<input type="text" v-model="from_user" class="input_mktab left_justifying">制表
+			  		</td>
+			  		<td class="right_justifying" colspan="3">
+			  			<div>电话：<input type="text" v-model="from_tel" class="input_tip left_justifying">　</div>
+			  		</td>
+			  	</tr>
+			</table>
+		</div>
+		<img class="pull-right"  v-on="click: save" title="保 存" src="./assert/icon/save_excel4.png">  
+		<br> 
+	</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="./lib/jquery/jquery-1.11.3.min.js"></script>
+	<!-- <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+   
+    <script src="./lib/vue.js"></script>
+	<script src="./app.js"></script> 
+	 
+	
+  </body>
+</html>

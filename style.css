@@ -1,0 +1,64 @@
+body{
+	background-color: #fff;
+}
+
+.input_danwei{
+	background: white;
+	border: 0;
+	width: 70%;
+	outline: none;
+	text-align: center;
+}
+
+.input_date{
+    background: white;
+    border: 0;
+    width: 25%;
+    outline: none;
+    text-align: center;
+}
+
+
+.input_tip{
+	background: white;
+	border: 0;
+	width: 15%;
+	outline: none;
+	text-align: center;
+}
+
+.input{
+	background: white;
+	border: 0;
+	width: 100%;
+	outline: none;
+	text-align: center;
+}
+
+
+
+.input_mktab{
+	background: white;
+	border: 0;
+	min-width: 20%;
+	width: auto;
+	outline: none;
+	text-align: center;
+}
+
+
+table td{
+	text-align: center;
+}
+
+table td.extra{
+	border: 0;	
+}
+
+.left_justifying{
+	text-align: left;
+}
+
+.right_justifying{
+	text-align: right;
+}
